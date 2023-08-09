@@ -37,6 +37,8 @@ function customLayout(currentRow, node) {
   }
 }
 //sample data to be used in the pdf
+const reportTitle = 'Vehicle Report';
+const fileName = 'vehicleReport.pdf';
 const reportData=[
   {
     "id": 'DPY802MP999999999',
@@ -104,13 +106,17 @@ const reportData=[
 //the pdf template
 const PDF_TEMPLATE = {
     info: {
-      title: 'awesome Document',
-      author: 'john doe',
-      subject: 'subject of document',
-      keywords: 'keywords for document'
+      title: 'Vehicle Report',
+      author: 'Rikatec',
+      subject: 'Vehicle Report',
     },
     content: [
-      { text: 'Report Title', style: 'header', alignment: 'center' },
+      {
+        image: 'logo.png',//path to the logo
+        width: 60,
+        alignment: 'center'
+      },
+      { text: `${reportTitle}`, style: 'header', alignment: 'center' },
       { text: '\n' }, // Add space
       ...reportData.flatMap(vehicleData => [
         { text: `Vehicle ID: ${vehicleData.id}`, style: 'header', fontSize: 12 },
@@ -175,7 +181,7 @@ app.post('/generate-vehicle-report', async (req, res) => {
       port: 587,
       secure: false,
       auth: {
-        user: 'your-email@gmail.com',
+        user: 'your_email@gmail.com',
         pass: '---your---pass---from---google--app--password---',
       },
     });
@@ -191,13 +197,13 @@ app.post('/generate-vehicle-report', async (req, res) => {
     });
 
       const mailOptions = {
-        from: 'your-email@gmail.com',
-        to: 'your-email@gmail.com',
+        from: 'your_email@gmail.com',
+        to: 'your_email@gmail.com',
         subject: 'Generated PDF',
         text: 'Here is your generated PDF.',
         attachments: [
               {
-                filename: 'generated.pdf',
+                filename: fileName,
                 content: pdfBuffer,
               },
             ],
