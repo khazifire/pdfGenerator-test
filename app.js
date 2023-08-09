@@ -39,6 +39,8 @@ function customLayout(currentRow, node) {
 //sample data to be used in the pdf
 const reportTitle = 'Vehicle Report';
 const fileName = 'vehicleReport.pdf';
+const logoImage = 'logo.png'; //path to the logo
+
 const reportData=[
   {
     "id": 'DPY802MP999999999',
@@ -112,7 +114,7 @@ const PDF_TEMPLATE = {
     },
     content: [
       {
-        image: 'logo.png',//path to the logo
+        image: logoImage,//path to the logo
         width: 60,
         alignment: 'center'
       },
