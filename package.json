@@ -1,0 +1,9 @@
+{
+  "dependencies": {
+    "express": "^4.18.2",
+    "memory-stream": "^1.0.0",
+    "nodemailer": "^6.9.4",
+    "pdfkit": "^0.13.0",
+    "pdfmake": "^0.2.7"
+  }
+}
