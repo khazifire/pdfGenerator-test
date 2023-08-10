@@ -1,9 +1,19 @@
 {
   "dependencies": {
+    "@babel/node": "^7.22.10",
     "express": "^4.18.2",
-    "memory-stream": "^1.0.0",
     "nodemailer": "^6.9.4",
     "pdfkit": "^0.13.0",
     "pdfmake": "^0.2.7"
+  },
+  "scripts": {
+    "build": "babel reports/app.js -d dist",
+    "start": "npm run build && nodemon reports/app.js"
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.22.10",
+    "@babel/core": "^7.22.10",
+    "@babel/preset-env": "^7.22.10",
+    "nodemon": "^3.0.1"
   }
 }
